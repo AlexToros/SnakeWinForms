@@ -1,73 +1,79 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System;
 
 namespace SnakeWinForms
 {
     class Snake
     {
-        public class Segment
-        {
-            public int RowIndx { get; set; }
-            public int ColIndx { get; set; }
-            public Segment(int rowIndx, int colIndx)
-            {
-                RowIndx = rowIndx;
-                ColIndx = colIndx;
-            }
-        }
-        public enum Direction
-        {
-            Up,
-            Right,
-            Down,
-            Left
-        }
+        public bool IsItOver = false;
         public Segment Head { get; private set; }
         public Direction CurrentDirection { get; set; }
         public List<Segment> Body { get; private set; }
-        public Snake(string LevelPath)
+
+        public Snake(List<Segment> body)
         {
             CurrentDirection = Direction.Left;
-            Body = new List<Segment>();
-
-            List<string> temp = new List<string>();
-            using (StreamReader sstream = new StreamReader(LevelPath))
-            {
-                while (!sstream.EndOfStream)
-                {
-                    temp.Add(sstream.ReadLine());
-                }
-            }
-            for (int i = 0; i < temp.Count; i++)
-            {
-                for (int j = 0; j < temp[i].Length; j++)
-                {
-                    if (temp[i][j] == '2')
-                        Body.Add(new Segment(i,j));
-                }
-            }
+            Body = body;
             Head = Body[0];
         }
         public void Move()
         {
-            Body[Body.Count - 1].ColIndx = Head.ColIndx;
-            Body[Body.Count - 1].RowIndx = Head.RowIndx;
+            for (int i = Body.Count-1; i > 0; i--)    
+            {
+                Body[i].ColIndx = Body[i - 1].ColIndx;
+                Body[i].RowIndx = Body[i - 1].RowIndx;
+            }
             switch (CurrentDirection)
             {
                 case Direction.Up:
-                    Head.RowIndx++;
+                    Head.RowIndx--;
                     break;
                 case Direction.Right:
                     Head.ColIndx++;
                     break;
                 case Direction.Down:
-                    Head.RowIndx--;
+                    Head.RowIndx++;
                     break;
                 case Direction.Left:
                     Head.ColIndx--;
                     break;
             }
+            for (int i = 1; i < Body.Count; i++)
+            {
+                if (Head.Equals(Body[i]))
+                {
+                    IsItOver = true;
+                    break;
+                }
+            }
+        }
+        public void Eat()
+        {
+            Body.Add(new Segment(Head.RowIndx, Head.ColIndx));
         }
         
+    }
+    public class Segment : IEquatable<Segment>
+    {
+        public int RowIndx { get; set; }
+        public int ColIndx { get; set; }
+        public Segment(int rowIndx, int colIndx)
+        {
+            RowIndx = rowIndx;
+            ColIndx = colIndx;
+        }
+
+        public bool Equals(Segment other)
+        {
+            return this.ColIndx == other.ColIndx && this.RowIndx == other.RowIndx;
+        }
+    }
+    public enum Direction
+    {
+        Up,
+        Right,
+        Down,
+        Left
     }
 }
