@@ -10,7 +10,6 @@ namespace SnakeWinForms
 {
     class Field
     {
-        public Snake Snake { get; private set; }
         public enum CellState
         {
             None,
@@ -36,9 +35,7 @@ namespace SnakeWinForms
                 for (int j = 0; j < temp[i].Length; j++)
                 {
                     if (temp[i][j] == '1')
-                    {
                         Map[i, j] = CellState.Wall;
-                    }
                 }
             }
         }

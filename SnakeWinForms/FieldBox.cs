@@ -10,7 +10,7 @@ namespace SnakeWinForms
 {
     class FieldBox : UserControl
     {
-        
+        public Snake Snake { get; private set; }
         public Field CurrentField { get; private set; }
         public FieldBox()
         {
@@ -26,6 +26,7 @@ namespace SnakeWinForms
         public void BuildLevel(Snake snake, Field field)
         {
             CurrentField = field;
+            Snake = snake;
         }
         protected override void OnPaint(PaintEventArgs e)
         {
