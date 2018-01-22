@@ -12,13 +12,27 @@ namespace SnakeWinForms
 {
     public partial class Form1 : Form
     {
+        Game Game;
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Game = new Game(AppContext.BaseDirectory + @"TestLevel.txt");
+            SnakeField.BuildLevel(Game,textBox1);
+            SnakeField.Invalidate();
+            SnakeField.Focus();
+            
+            Game.Start();
+            SnakeField.Focus();
         }
     }
 }

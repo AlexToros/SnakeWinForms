@@ -10,35 +10,32 @@ namespace SnakeWinForms
 {
     class Field
     {
-        public enum CellState
-        {
-            None,
-            Wall,
-            Food,
-            SnakeBody
-        }
+        Random rnd = new Random();
         public CellState[,] Map { get; private set; }
-
-        public Field(string LevelPath)
+        public int Widht { get; private set; }
+        public int Height { get; private set; }
+        public Field(CellState[,] map, int width, int height)
         {
-            List<string> temp = new List<string>();
-            using (StreamReader sstream = new StreamReader(LevelPath))
-            {
-                while (!sstream.EndOfStream)
-                {
-                    temp.Add(sstream.ReadLine());
-                }
-            }
-            Map = new CellState[temp[0].Length, temp.Count];
-            for (int i = 0; i < temp.Count; i++)
-            {
-                for (int j = 0; j < temp[i].Length; j++)
-                {
-                    if (temp[i][j] == '1')
-                        Map[i, j] = CellState.Wall;
-                }
-            }
+            Map = map;
+            Widht = width;
+            Height = height;
+            PlaceFood();
         }
 
+        public void PlaceFood()
+        {
+            int cIndx = rnd.Next(0, Widht);
+            int rIndx = rnd.Next(0, Height);
+            if (Map[cIndx, rIndx] == CellState.None)
+                Map[cIndx, rIndx] = CellState.Food;
+            else
+                PlaceFood();
+        }
+    }
+    public enum CellState
+    {
+        None,
+        Wall,
+        Food
     }
 }
