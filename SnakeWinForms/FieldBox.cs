@@ -11,19 +11,45 @@ namespace SnakeWinForms
     class FieldBox : UserControl
     {
         Form1 containeer;
+        private Label label1;
         private TextBox tb;
         public Game Game { get; private set; }
         public FieldBox()
         {
             InitializeComponent();
+
+            label1.Text = "Игра Змейка" + Environment.NewLine + "Выбор уровней в настройках" +
+                Environment.NewLine + "Управление - Arrow Keys" + Environment.NewLine + "Пауза - Esc";
         }
         private void InitializeComponent()
         {
-            DoubleBuffered = true;
-            Width = 500;
-            Height = 500;
-            Dock = DockStyle.Fill;
-            BackColor = Color.White;
+            this.label1 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(810, 390);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Приветствие";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FieldBox
+            // 
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
+            this.Name = "FieldBox";
+            this.Size = new System.Drawing.Size(810, 390);
+            this.ResumeLayout(false);
+
+        }
+        public void HideTheStartLable()
+        {
+            label1.Visible = false;
         }
         public void BuildLevel(Game game, TextBox Tb, Form1 form1)
         {
@@ -115,5 +141,7 @@ namespace SnakeWinForms
                 Game.PauseUnPause();
             }
         }
+
+
     }
 }

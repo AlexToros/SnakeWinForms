@@ -27,11 +27,9 @@ namespace SnakeWinForms
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game = new Game(AppOptions.CurrentLevel);
-            //Game = new Game(AppContext.BaseDirectory + @"TestLevel.txt");
             SnakeField.BuildLevel(Game, textBox1, this);
             SnakeField.Invalidate();
-            SnakeField.Focus();
-            
+            SnakeField.HideTheStartLable();
             Game.Start();
             SnakeField.Focus();
         }
@@ -41,5 +39,6 @@ namespace SnakeWinForms
             OptionsForm f = new OptionsForm();
             f.ShowDialog();
         }
+        
     }
 }
