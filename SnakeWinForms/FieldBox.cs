@@ -45,12 +45,12 @@ namespace SnakeWinForms
         protected override void OnPaint(PaintEventArgs e)
         {
             if (Game == null) return;
-            int CellWidth = Width / Game.Field.Widht;
-            int CellHeight = Height / Game.Field.Height;
+            int CellWidth = Width / Field.Widht;
+            int CellHeight = Height / Field.Height;
             System.Drawing.Size rectangleSize = new Size(CellWidth,CellHeight);
             Point currentLocation;
-            for (int i = 0; i < Game.Field.Widht; i++)
-                for (int j = 0; j < Game.Field.Height; j++)
+            for (int i = 0; i < Field.Widht; i++)
+                for (int j = 0; j < Field.Height; j++)
                 {
                     currentLocation = new Point(j * CellWidth, i * CellHeight);
                     switch (Game.Field.Map[i,j])

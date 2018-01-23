@@ -12,8 +12,8 @@ namespace SnakeWinForms
     {
         Random rnd = new Random();
         public CellState[,] Map { get; private set; }
-        public int Widht { get; private set; }
-        public int Height { get; private set; }
+        public static int Widht { get; private set; }
+        public static int Height { get; private set; }
         public Field(CellState[,] map, int width, int height)
         {
             Map = map;

@@ -34,5 +34,11 @@ namespace SnakeWinForms
             Game.Start();
             SnakeField.Focus();
         }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OptionsForm f = new OptionsForm();
+            f.ShowDialog();
+        }
     }
 }

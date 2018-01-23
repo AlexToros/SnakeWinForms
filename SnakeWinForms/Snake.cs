@@ -39,14 +39,33 @@ namespace SnakeWinForms
                     Head.ColIndx--;
                     break;
             }
+            if (AppOptions.AllowGoThroughWall)
+            {
+                if (Head.ColIndx < 0) Head.ColIndx = Field.Widht - 1;
+                if (Head.RowIndx < 0) Head.RowIndx = Field.Height - 1;
+                Head.ColIndx = Head.ColIndx % Field.Widht;
+                Head.RowIndx = Head.RowIndx % Field.Height;
+            }
+            else
+            if (IsSnakeOutOfField())
+            {
+                IsItOver = true;
+                return;
+            }
             for (int i = 1; i < Body.Count; i++)
             {
                 if (Head.Equals(Body[i]))
                 {
                     IsItOver = true;
-                    break;
+                    return;
                 }
             }
+        }
+        private bool IsSnakeOutOfField()
+        {
+            if (Head.RowIndx < 0 || Head.ColIndx < 0) return true;
+            if (Head.RowIndx >= Field.Height || Head.ColIndx >= Field.Widht) return true;
+            return false;
         }
         public void Eat()
         {

@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SnakeField = new SnakeWinForms.FieldBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +41,8 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameToolStripMenuItem});
+            this.newGameToolStripMenuItem,
+            this.optionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(500, 24);
@@ -86,6 +88,13 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.TabStop = false;
             // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.optionsToolStripMenuItem.Text = "Настройки";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,6 +122,7 @@
         private FieldBox SnakeField;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     }
 }
 

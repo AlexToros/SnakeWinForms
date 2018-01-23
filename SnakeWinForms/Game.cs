@@ -72,20 +72,12 @@ namespace SnakeWinForms
         }
         private bool IsPlayerLose()
         {
-            try
-            {
                 if (Snake.IsItOver)
                     return true;
 
                 if (Field.Map[Snake.Head.RowIndx,Snake.Head.ColIndx] == CellState.Wall)
                     return true;
                 return false;
-            }
-            catch (Exception)
-            {
-                return true;
-            }
-            
         }
         private void CheckFood()
         {
