@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.IO;
+using System.Reflection;
 
 namespace SnakeWinForms
 {
@@ -18,35 +19,38 @@ namespace SnakeWinForms
         public Field Field { get; private set; }
         public bool AllowToSpin { get; set; }
         public int Points { get; private set; }
-        public Game(string LevelPath)
+        public bool GameOnPause = false;
+        public Game(string Level)
         {
+            int width, height;
             Points = 0;
             AllowToSpin = true;
             timer = new Timer();
             timer.Elapsed += SnakeStep;
             timer.Interval = 500;
             List<string> temp = new List<string>();
-            using (StreamReader sstream = new StreamReader(LevelPath))
-            {
-                while (!sstream.EndOfStream)
-                {
-                    temp.Add(sstream.ReadLine());
-                }
-            }
+          
+            string[] arr = Level.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            temp = arr.ToList<string>();
+
+            width = temp[0].Length;
+            height = temp.Count;
             List<Segment> Body = new List<Segment>();
-            CellState[,] Map = new CellState[temp[0].Length, temp.Count];
-            for (int i = 0; i < temp.Count; i++)
+            CellState[,] Map = new CellState[height,width];
+            for (int i = 0; i < height; i++)
             {
-                for (int j = 0; j < temp[i].Length; j++)
+                string row = temp[i];
+                for (int j = 0; j < width; j++)
                 {
-                    if (temp[i][j] == '1')
+                    char ch = row[j];
+                    if (ch == '1')
                         Map[i, j] = CellState.Wall;
-                    if (temp[i][j] == '2')
+                    if (ch == '2')
                         Body.Add(new Segment(i, j));
                 }
             }
             Snake = new Snake(Body);
-            Field = new Field(Map, temp[0].Length, temp.Count);
+            Field = new Field(Map, width, height);
         }
 
         private void SnakeStep(object sender, ElapsedEventArgs e)
@@ -65,7 +69,14 @@ namespace SnakeWinForms
                 OnChange();
             }
         }
-
+        public void PauseUnPause()
+        {
+            if (GameOnPause)
+                timer.Start();
+            else
+                timer.Stop();
+            GameOnPause = !GameOnPause;
+        }
         public void Start()
         {
             timer.Start();

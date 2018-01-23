@@ -22,7 +22,7 @@ namespace SnakeWinForms.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SnakeWinForms.Properties {
         ///   Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SnakeWinForms.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,66 @@ namespace SnakeWinForms.Properties {
         ///   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 1000000000000000000000001
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///1111111111100000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000222200000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000111111111111        /// [остаток строки не уместился]&quot;;.
+        /// </summary>
+        public static string TestLevel {
+            get {
+                return ResourceManager.GetString("TestLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 1111111111111111111111111
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1111111111100000000000001
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///0000000000000000000000000
+        ///1000000000222200000000001
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1000000000000000000000001
+        ///1111111111111111111111111.
+        /// </summary>
+        public static string TestLevel1 {
+            get {
+                return ResourceManager.GetString("TestLevel1", resourceCulture);
             }
         }
     }

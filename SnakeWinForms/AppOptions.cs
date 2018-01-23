@@ -9,5 +9,8 @@ namespace SnakeWinForms
     static class AppOptions
     {
         public static bool AllowGoThroughWall = false;
+
+        public static string CurrentLevel = Properties.Resources.TestLevel;
+        public static int CellSide = 20;
     }
 }

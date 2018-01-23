@@ -30,10 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SnakeField = new SnakeWinForms.FieldBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SnakeField = new SnakeWinForms.FieldBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,25 +56,23 @@
             this.newGameToolStripMenuItem.Text = "Новая Игра";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.optionsToolStripMenuItem.Text = "Настройки";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(361, 4);
+            this.label1.Location = new System.Drawing.Point(361, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Счет: ";
-            // 
-            // SnakeField
-            // 
-            this.SnakeField.BackColor = System.Drawing.Color.White;
-            this.SnakeField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SnakeField.Location = new System.Drawing.Point(0, 24);
-            this.SnakeField.Name = "SnakeField";
-            this.SnakeField.Size = new System.Drawing.Size(500, 500);
-            this.SnakeField.TabIndex = 1;
             // 
             // textBox1
             // 
@@ -88,12 +86,14 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.TabStop = false;
             // 
-            // optionsToolStripMenuItem
+            // SnakeField
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.optionsToolStripMenuItem.Text = "Настройки";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            this.SnakeField.BackColor = System.Drawing.Color.White;
+            this.SnakeField.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SnakeField.Location = new System.Drawing.Point(0, 24);
+            this.SnakeField.Name = "SnakeField";
+            this.SnakeField.Size = new System.Drawing.Size(500, 500);
+            this.SnakeField.TabIndex = 1;
             // 
             // Form1
             // 
@@ -106,7 +106,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Змейка";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

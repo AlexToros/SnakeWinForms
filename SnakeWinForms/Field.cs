@@ -26,8 +26,8 @@ namespace SnakeWinForms
         {
             int cIndx = rnd.Next(0, Widht);
             int rIndx = rnd.Next(0, Height);
-            if (Map[cIndx, rIndx] == CellState.None)
-                Map[cIndx, rIndx] = CellState.Food;
+            if (Map[rIndx, cIndx] == CellState.None)
+                Map[rIndx, cIndx] = CellState.Food;
             else
                 PlaceFood();
         }

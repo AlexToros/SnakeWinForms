@@ -32,6 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.OK_button = new System.Windows.Forms.Button();
             this.Cancel_button2 = new System.Windows.Forms.Button();
+            this.LevelsBox = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             // OK_button
             // 
             this.OK_button.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.OK_button.Location = new System.Drawing.Point(100, 76);
+            this.OK_button.Location = new System.Drawing.Point(101, 153);
             this.OK_button.Name = "OK_button";
             this.OK_button.Size = new System.Drawing.Size(76, 30);
             this.OK_button.TabIndex = 2;
@@ -69,7 +70,7 @@
             // Cancel_button2
             // 
             this.Cancel_button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel_button2.Location = new System.Drawing.Point(12, 76);
+            this.Cancel_button2.Location = new System.Drawing.Point(12, 153);
             this.Cancel_button2.Name = "Cancel_button2";
             this.Cancel_button2.Size = new System.Drawing.Size(73, 30);
             this.Cancel_button2.TabIndex = 3;
@@ -77,13 +78,22 @@
             this.Cancel_button2.UseVisualStyleBackColor = true;
             this.Cancel_button2.Click += new System.EventHandler(this.Cancel_button2_Click);
             // 
+            // LevelsBox
+            // 
+            this.LevelsBox.FormattingEnabled = true;
+            this.LevelsBox.Location = new System.Drawing.Point(12, 64);
+            this.LevelsBox.Name = "LevelsBox";
+            this.LevelsBox.Size = new System.Drawing.Size(165, 82);
+            this.LevelsBox.TabIndex = 4;
+            // 
             // OptionsForm
             // 
             this.AcceptButton = this.OK_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel_button2;
-            this.ClientSize = new System.Drawing.Size(189, 118);
+            this.ClientSize = new System.Drawing.Size(189, 195);
+            this.Controls.Add(this.LevelsBox);
             this.Controls.Add(this.Cancel_button2);
             this.Controls.Add(this.OK_button);
             this.Controls.Add(this.groupBox1);
@@ -101,5 +111,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button OK_button;
         private System.Windows.Forms.Button Cancel_button2;
+        private System.Windows.Forms.ListBox LevelsBox;
     }
 }
